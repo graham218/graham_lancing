@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
+require('dotenv').config()
 
 const app = express();
 
@@ -19,10 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./app/models");
 const Role = db.role;
 
-const URI = process.env.URI
+const URL = process.env.URI
 
 db.mongoose
-  .connect('mongodb+srv://lancinggrm:86747486b@lancing.bluxh1o.mongodb.net/?retryWrites=true&w=majority', {
+  .connect(URL, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
