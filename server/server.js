@@ -20,32 +20,9 @@ const db = require("./app/models");
 const Role = db.role;
 
 const URI = process.env.URI
-// mongoose.connect(URI, {
-//   useCreateIndex: true,
-//   useFindAndModify: false,
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// }, err => {
-//   if(err) throw err;
-//   console.log('Connected to mongodb')
-// })
-
-// db.mongoose
-//   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-//   })
-//   .then(() => {
-//     console.log("Successfully connect to MongoDB.");
-//     initial();
-//   })
-//   .catch(err => {
-//     console.error("Connection error", err);
-//     process.exit();
-//   });
 
 db.mongoose
-  .connect(URI, {
+  .connect('mongodb+srv://lancinggrm:86747486b@lancing.bluxh1o.mongodb.net/?retryWrites=true&w=majority', {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
