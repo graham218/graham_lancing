@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./app/models");
 const Role = db.role;
 
-// const URI = process.env.URI
+const URI = process.env.URI
 // mongoose.connect(URI, {
 //   useCreateIndex: true,
 //   useFindAndModify: false,
@@ -30,8 +30,24 @@ const Role = db.role;
 //   console.log('Connected to mongodb')
 // })
 
+// db.mongoose
+//   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(() => {
+//     console.log("Successfully connect to MongoDB.");
+//     initial();
+//   })
+//   .catch(err => {
+//     console.error("Connection error", err);
+//     process.exit();
+//   });
+
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(URI, {
+    useCreateIndex: true,
+    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
