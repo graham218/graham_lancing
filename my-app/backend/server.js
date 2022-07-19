@@ -22,13 +22,14 @@ app.use(cors());
 app.use(express.json());
 
 // mongoDB Atlas database address
-const dbUri = process.env.DB0_URI.replace(
-  '<password>',
-  process.env.DB0_PASSWORD
-);
+// const dbUri = process.env.DB0_URI.replace(
+//   '<password>',
+//   process.env.DB0_PASSWORD
+// );
 
+const URL = process.env.URI
 // start db connection.
-mongoose.connect(dbUri, { 
+mongoose.connect(URL, { 
   useNewUrlParser: true, 
   useCreateIndex: true, 
   useFindAndModify: false, 
